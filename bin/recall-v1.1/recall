@@ -1,0 +1,9 @@
+#!/bin/bash
+dir=`dirname "$0"`;
+java="java"
+agent="-javaagent:$dir/dist/lib/ObjectSize.jar"
+initHeap="1M"
+maxHeap="8G"
+stack="256M"
+jar="dist/recall.jar"
+$java $agent -Xms$initHeap -Xss$stack -Xmx$maxHeap -jar $dir/$jar $@
